@@ -4,14 +4,13 @@ var exSession = require('express-session');
 var path = require('path');
 var multer = require('multer');
 var cookieParser = require('cookie-parser');
-//var signup = require('./controllers/signup');
+var signup = require('./controllers/signup');
 var login = require('./controllers/login');
 var admin = require('./controllers/admin');
-//var member = require('./controllers/member');
-//var restaurant = require('./controllers/restaurant');
-//var logout = require('./controllers/logout');
-//var restaurantModel = require.main.require('./model/restaurant-model');
-//var foodModel = require.main.require('./model/food-model');
+var member = require('./controllers/member');
+
+
+
 var app = express();
 var port = 3000;
 
@@ -21,7 +20,7 @@ app.set('view engine', 'ejs');
 
 //middleware
 /*---------------------------------------*/
-app.use(exSession({ secret: 'my top secret code', saveUninitialized: true, resave: false }));
+app.use(exSession({ secret: 'secret', saveUninitialized: true, resave: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 var storage = multer.diskStorage({
@@ -33,12 +32,12 @@ var storage = multer.diskStorage({
 app.use(multer({
     storage: storage
 }).single('imageFile'));
-//app.use('/signup', signup);
+app.use('/signup', signup);
 app.use('/login', login);
 app.use('/admin', admin);
-/*app.use('/member', member);
-app.use('/logout', logout);
-app.use('/restaurant', restaurant);*/
+app.use('/member', member);
+
+
 app.use('/', express.static('asset'));
 /*app.use('/pictures', express.static('images'));*/
 
