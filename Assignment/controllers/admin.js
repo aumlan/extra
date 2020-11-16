@@ -10,15 +10,9 @@ router.get('*', function(req, res, next) {
     }
 });
 
-router.get('/', (req, res) => {
-    var user = {
-        name: req.session.uId
-    };
-    res.render('admin/index', user);
-});
 
 
-
+module.exports = router1;
 
 
 module.exports = router;
