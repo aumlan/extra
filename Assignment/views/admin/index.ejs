@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <div align="center">
+        <h1>Welcome Home,
+            <%=name%>
+        </h1>
+    </div>
+    <ul>
+        <li><a class="active" href="/admin">Home</a></li>
+        <li><a href="/logout">Log Out</a></li>
+        <li>
+            <div class="dropdown">
+                <div class="dropbtn">Profile</div>
+                <div class="dropdown-content">
+                    <a href="/admin/profile">View Profile</a><br>
+                    <a href="/admin/editProfile">Edit Profile</a>
+                </div>
+            </div>
+        </li>
+        <li><a href="/admin/restaurants">All Restaurants</a></li>
+        <li><a href="/admin/addRestaurant">Add Restaurant</a></li>
+    </ul>
+
+
+</body>
+
+</html>
